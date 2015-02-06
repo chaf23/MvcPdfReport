@@ -1,0 +1,115 @@
+﻿@using MvcPDFReport.Models
+@model PatientListModel
+@{
+    ViewBag.Title = "";
+}
+@*<br />
+<img src="@Model.LogoImage" width="64" height="64" />
+<br />*@
+
+<table cellpadding="15" cellspacing="15" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="2">
+            <img src="@Model.LogoImage" width="100" height="120"/>
+        </td>
+        <td>
+            &#8968; @*alt+218*@
+        </td>
+        <td align="right">
+            &#8969; @*alt+191*@
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            Date:<u>@DateTime.Now.ToString("MM/dd/yyyy")</u>
+        </td>
+        <td>
+            &#8970; @*alt+192*@
+        </td>
+        <td align="right">
+            &#8971; @*alt+217*@
+        </td>
+        <td style="border-bottom: 1px solid #000;">Office:</td>
+    </tr>
+    @*<tr border="1">
+        <td colspan="3">
+            Date:@DateTime.Now.ToString("MM/dd/yyyy")
+        </td>
+    </tr>*@
+</table>
+
+<table cellpadding="15" cellspacing="15">
+            <tr>
+                <td colspan="2">
+                    
+                     @*var imgSrc = String.Format("data:image/jpeg;base64,{0}", @Model.EcgImage);
+                     <img src="@imgSrc" width="" height=""/>*@
+                    @*<img src='@Model.ImageBytes' width="500" height="100" />*@
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Time:<u>@DateTime.Now.ToString("hh:mm:ss tt")</u>
+                </td>
+                <td>
+                    Lead:
+                </td>
+            </tr>
+        
+   
+    @*<tr>
+        <td colspan="2">
+            <img src="@Model.EcgImage" width="500" height="100" align="left"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Time:<u>@DateTime.Now.ToString("hh:mm:ss tt")</u>
+        </td>
+        <td>
+            Lead:<u></u>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <img src="@Model.EcgImage" width="500" height="100" align="left"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Time:<u>@DateTime.Now.ToString("hh:mm:ss tt")</u>
+        </td>
+        <td>
+            Lead:<u></u>
+        </td>
+    </tr>*@
+    @*<tr border="1" bgcolor="#777777" color="#ffffff">
+        <td width="20%" align="center">
+            Provider Name
+        </td>
+        <td width="50%" align="center">
+            Provider Address
+        </td>
+        <td width="30%" align="center">
+            Provider Place
+        </td>
+    </tr>
+    @{
+        var oddColor = "#FACC6D";
+        var evenColor = "#99CC33";
+        var odd = oddColor;
+    }
+    @foreach (var p in Model)
+    {
+        <tr border="1" bgcolor="@odd">
+            <td>@p.Name
+            </td>
+            <td>@p.Address
+            </td>
+            <td>@p.Place
+            </td>
+        </tr>
+       
+        odd = odd == oddColor ? evenColor : oddColor;
+    }*@
+</table>

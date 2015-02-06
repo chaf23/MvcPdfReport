@@ -1,0 +1,1 @@
+C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\MvcPDFReport.Tests\obj\Debug\MvcPDFReport.Tests.csprojResolveAssemblyReference.cache
