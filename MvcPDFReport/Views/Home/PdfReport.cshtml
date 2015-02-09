@@ -1,0 +1,39 @@
+﻿@using MvcPDFReport.Models
+@model PatientListModel
+@{
+    ViewBag.Title = "";
+}
+@*<br />
+<img src="@Model.LogoImage" width="64" height="64" />
+<br />*@
+
+<table cellpadding="15" cellspacing="15" style="border-collapse: collapse;">
+    <tr>
+        <td colspan="2">
+            <img src="@Model.LogoImage" width="100" height="120"/>
+        </td>
+        <td>
+            &#8968; @*alt+218*@
+        </td>
+        <td align="right">
+            &#8969; @*alt+191*@
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            Date:<u>@DateTime.Now.ToString("MM/dd/yyyy")</u>
+        </td>
+        <td>
+            &#8970; @*alt+192*@
+        </td>
+        <td align="right">
+            &#8971; @*alt+217*@
+        </td>
+        <td style="border-bottom: 1px solid #000;">Office:</td>
+    </tr>
+    @*<tr border="1">
+        <td colspan="3">
+            Date:@DateTime.Now.ToString("MM/dd/yyyy")
+        </td>
+    </tr>*@
+</table>
