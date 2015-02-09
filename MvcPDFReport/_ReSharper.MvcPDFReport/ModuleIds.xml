@@ -1,0 +1,4 @@
+<Modules>
+  <Module PersistentId="BB9D4373-D97A-48D9-905B-D64372C66273" ModuleId="iTextSharpReportGenerator" />
+  <Module PersistentId="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E" ModuleId="MvcPDFReport" />
+</Modules>

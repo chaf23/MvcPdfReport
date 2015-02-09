@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="iTextSharpReportGenerator.PrintHeaderFooter">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAEAAQAEBAAAQBAAAAACAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>PrintHeaderFooter.cs</FileName>
+      <NewMemberFileName>Class1.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iTextSharpReportGenerator.BinaryContentResult">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACQAAA=</HashCode>
+      <FileName>BinaryContentResult.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iTextSharpReportGenerator.HtmlViewRenderer">
+    <Position X="2.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>HtmlViewRenderer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iTextSharpReportGenerator.FakeView">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>FakeView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="iTextSharpReportGenerator.PdfViewController">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>PdfViewController.cs</FileName>
+      <NewMemberFileName>Class1.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="iTextSharpReportGenerator.StandardPdfRenderer">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAAAAAAIAA=</HashCode>
+      <FileName>StandardPdfRenderer.cs</FileName>
+      <NewMemberFileName>Class1.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

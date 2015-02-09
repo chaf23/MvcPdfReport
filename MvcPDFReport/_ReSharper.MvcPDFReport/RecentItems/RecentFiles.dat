@@ -1,0 +1,30 @@
+﻿<RecentFiles>
+  <RecentFiles>
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Views/d:Home/f:Index.cshtml" caret="0" fromTop="0" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:FakeView.cs" caret="13" fromTop="0" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:BinaryContentResult.cs" caret="0" fromTop="0" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:Provider.cs" caret="205" fromTop="10" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:StandardPdfRenderer.cs" caret="1031" fromTop="20" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:ProviderList.cs" caret="289" fromTop="12" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:PatientModel.cs" caret="374" fromTop="13" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:PatientListModel.cs" caret="325" fromTop="11" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Views/d:Home/f:PdfReport.cshtml" caret="1306" fromTop="35" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:PrintHeaderFooter.cs" caret="698" fromTop="0" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Controllers/f:HomeController.cs" caret="1107" fromTop="15" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:HtmlViewRenderer.cs" caret="1268" fromTop="22" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:PdfViewController.cs" caret="1538" fromTop="20" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:EcgImageSnippet.cs" caret="754" fromTop="20" />
+  </RecentFiles>
+  <RecentEdits>
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:FakeView.cs" caret="13" fromTop="0" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:BinaryContentResult.cs" caret="0" fromTop="0" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:StandardPdfRenderer.cs" caret="0" fromTop="0" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:ProviderList.cs" caret="370" fromTop="13" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Models/f:PatientListModel.cs" caret="325" fromTop="11" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Views/d:Home/f:PdfReport.cshtml" caret="1306" fromTop="35" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:HtmlViewRenderer.cs" caret="1091" fromTop="13" />
+    <File id="CFF369D9-B0A7-4B7F-9A1D-58A1D6347A7E/d:Controllers/f:HomeController.cs" caret="1107" fromTop="15" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:PdfViewController.cs" caret="1540" fromTop="21" />
+    <File id="BB9D4373-D97A-48D9-905B-D64372C66273/f:EcgImageSnippet.cs" caret="1966" fromTop="25" />
+  </RecentEdits>
+</RecentFiles>
