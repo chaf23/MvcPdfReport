@@ -14,12 +14,12 @@ namespace iTextSharpReportGenerator
     /// </summary>
     public class StandardPdfRenderer
     {
-        private const int HorizontalMargin = 40;
-        private const int VerticalMargin = 40;
+        //private const int HorizontalMargin = 40;
+        //private const int VerticalMargin = 40;
 
-        public byte[] Render(string htmlText, string pageTitle, string ecgImage)
+        public byte[] Render(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
         {
-            return RenderPdf(htmlText, pageTitle, ecgImage);
+            return RenderPdf(ecgImage); //htmlText, pageTitle, ecgImage);
         }
 
         //private static byte[] RenderStream(string htmlText, string pageTitle)
@@ -51,20 +51,21 @@ namespace iTextSharpReportGenerator
         //    return renderedBuffer;
         //}
 
-        private byte[] RenderPdf(string htmlText, string pageTitle, string ecgImage)
+        private byte[] RenderPdf(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
         {
             byte[] renderedBuffer;
             string filePath = HostingEnvironment.MapPath("~/Content/Pdf/");
 
             using (var outputMemoryStream = new FileStream(filePath + "\\pdf-" + "Test.pdf", FileMode.Create))
             {
-                using (var doc = new Document(PageSize.A4))
+                using (var doc = new Document(PageSize.A4, 40, 40, 40 ,40))
                 {
                     PdfWriter pdfWriter = PdfWriter.GetInstance(doc, outputMemoryStream);
                     pdfWriter.CloseStream = false;
+                    pdfWriter.PageEvent = new PrintHeaderFooter { Title = "ECG Readings" };
                     doc.Open();
                     DrawPdfPage drawPdfPage = new DrawPdfPage();
-                    drawPdfPage.Generate(pdfWriter, ecgImage);
+                    drawPdfPage.Generate(doc, pdfWriter, ecgImage);
                 }
 
                 renderedBuffer = new byte[outputMemoryStream.Position];

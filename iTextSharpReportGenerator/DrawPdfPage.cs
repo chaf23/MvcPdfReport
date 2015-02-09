@@ -8,16 +8,37 @@ namespace iTextSharpReportGenerator
     public class DrawPdfPage
     {
         private int YPos { get; set; }
+        
+        private int XBeginningPos { get; set; }
+        private int XEndPos { get; set; }
+        private int YBeginningPos { get; set; }
+        private int YEndPost { get; set; }
 
-        public void Generate(PdfWriter pdfWriter, string base64String)
+        public DrawPdfPage()
+        {
+            //Page Margins
+            XBeginningPos = 40;
+            YBeginningPos = 40;
+            XEndPos = 555;
+            YEndPost = 802;
+        }
+
+        public void Generate(Document doc, PdfWriter pdfWriter, string base64String)
         {
             var cb = pdfWriter.DirectContent;
             DocumentHeader(cb);
-            YPos = 527;
-            for (int cnt = 0; cnt < 3; cnt++)
+
+            for (var cnt = 0; cnt < 8; cnt++)
             {
+                if (YPos < YBeginningPos)
+                {
+                    doc.NewPage();
+                    DocumentHeader(cb);
+                }
+
                 cb.AddImage(ConvertBase64ToElement(base64String));
                 LineTimeAndLead(cb);
+
             }
 
         }
@@ -26,22 +47,26 @@ namespace iTextSharpReportGenerator
         {
             //Vertical Line
             cb.MoveTo(296, 632);
-            cb.LineTo(296, 842);
+            cb.LineTo(296, YEndPost);
             cb.Stroke();
+
             //Horizontal Line
-            cb.MoveTo(0, 632);
-            cb.LineTo(595, 632);
+            cb.MoveTo(XBeginningPos, 632);
+            cb.LineTo(XEndPos, 632);
             cb.Stroke();
-
-            //Date:
-            var bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            cb.SetColorFill(BaseColor.DARK_GRAY);
-            cb.SetFontAndSize(bf, 24);
-
-            cb.BeginText();
             var text = "Date:" + DateTime.Now.Date.ToString("MM/dd/yyyy");
-            cb.ShowTextAligned(0, text, 50, 650, 0);
-            cb.EndText();
+            var textAlignedPdf = new TextAlignedPdfConfig
+                                            {
+                                                Alignment = 0,
+                                                Text = text,
+                                                X = 50,
+                                                Y = 650,
+                                                Rotation = 0
+                                            };
+
+            PdfText(cb, textAlignedPdf);
+
+            YPos = 527;
         }
 
         private Image ConvertBase64ToElement(string base64String)
@@ -51,8 +76,8 @@ namespace iTextSharpReportGenerator
             try
             {
                 //  Convert base64string to bytes array
-                Byte[] bytes = Convert.FromBase64String(base64String);
-                img = iTextSharp.text.Image.GetInstance(bytes);
+                var bytes = Convert.FromBase64String(base64String);
+                img = Image.GetInstance(bytes);
 
             }
             catch (DocumentException dex)
@@ -68,8 +93,10 @@ namespace iTextSharpReportGenerator
                 img.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
                 img.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 img.BorderColor = iTextSharp.text.BaseColor.WHITE;
-                img.ScaleToFit(595f, 104f);
-                img.SetAbsolutePosition(50, YPos);
+                //Scale to size
+                img.ScaleAbsolute(XEndPos - XBeginningPos, 104);
+                //XY Coordinates
+                img.SetAbsolutePosition(XBeginningPos, YPos);
             }
 
             return img;
@@ -78,32 +105,64 @@ namespace iTextSharpReportGenerator
         private void LineTimeAndLead(PdfContentByte cb)
         {
             YPos -= 1;
+
             //Top Border Line
-            cb.MoveTo(0, YPos);
-            cb.LineTo(595, YPos);
+            cb.MoveTo(XBeginningPos, YPos);
+            cb.LineTo(XEndPos, YPos);
             cb.Stroke();
 
-            //Time: Lead: Text
-            var bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-            cb.SetColorFill(BaseColor.BLACK);
-            cb.SetFontAndSize(bf, 24);
-            YPos -= 58;
-            cb.BeginText();
-            var text = "Lead:";
-            cb.ShowTextAligned(0, text, 320, YPos, 0);
-            cb.EndText();
-            cb.BeginText();
-            text = "Time:";
-            cb.ShowTextAligned(0, text, 50, YPos, 0);
-            cb.EndText();
+            //Time: & Lead: Text
+            TimeLeadText(cb);
 
             //Bottom Border Line
-            YPos -= 46;
-            cb.MoveTo(0, YPos);
-            cb.LineTo(595, YPos);
+            YPos -= 46;//TODO: Fix
+            cb.MoveTo(XBeginningPos, YPos);
+            cb.LineTo(XEndPos, YPos);
             cb.Stroke();
 
             YPos -= 106;
+        }
+
+        private void TimeLeadText(PdfContentByte cb)
+        {
+            YPos -= 58;
+            var textAlignedPdf = new TextAlignedPdfConfig
+            {
+                Alignment = 0,
+                Rotation = 0,
+                Y = YPos
+            };
+
+            var text = "Lead:";
+            textAlignedPdf.Text = text;
+            textAlignedPdf.X = 320;
+            PdfText(cb, textAlignedPdf);
+
+            text = "Time:";
+            textAlignedPdf.Text = text;
+            textAlignedPdf.X = 50;
+            PdfText(cb, textAlignedPdf);
+        }
+
+        private static void PdfText(PdfContentByte cb, TextAlignedPdfConfig parms)
+        {
+            
+            var bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            cb.SetColorFill(BaseColor.BLACK);
+            cb.SetFontAndSize(bf, 24);
+
+            cb.BeginText();
+            cb.ShowTextAligned(parms.Alignment, parms.Text, parms.X, parms.Y, parms.Rotation);
+            cb.EndText();
+        }
+
+        private class TextAlignedPdfConfig
+        {
+            public int Alignment { get; set; }
+            public string Text { get; set; }
+            public float X { get; set; }
+            public float Y { get; set; }
+            public float Rotation { get; set; }
         }
     }
 }

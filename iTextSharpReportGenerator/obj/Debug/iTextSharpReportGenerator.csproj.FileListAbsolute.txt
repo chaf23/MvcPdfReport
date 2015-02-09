@@ -15,6 +15,6 @@ C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGener
 C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\bin\Debug\System.Web.WebPages.xml
 C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\obj\Debug\iTextSharpReportGenerator.csprojResolveAssemblyReference.cache
 C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\obj\Debug\iTextSharpReportGenerator.dll
 C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\obj\Debug\iTextSharpReportGenerator.pdb
+C:\Users\DAGO\Desktop\Learning Stuff\Programs\MvcPDFReport\iTextSharpReportGenerator\obj\Debug\iTextSharpReportGenerator.csprojResolveAssemblyReference.cache
