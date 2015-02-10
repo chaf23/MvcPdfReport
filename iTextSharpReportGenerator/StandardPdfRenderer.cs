@@ -17,9 +17,10 @@ namespace iTextSharpReportGenerator
         //private const int HorizontalMargin = 40;
         //private const int VerticalMargin = 40;
 
-        public byte[] Render(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
+        public /*byte[]*/ void Render(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
         {
-            return RenderPdf(ecgImage); //htmlText, pageTitle, ecgImage);
+            //return RenderPdf(ecgImage); //htmlText, pageTitle, ecgImage);
+            RenderPdf(ecgImage);
         }
 
         //private static byte[] RenderStream(string htmlText, string pageTitle)
@@ -51,12 +52,11 @@ namespace iTextSharpReportGenerator
         //    return renderedBuffer;
         //}
 
-        private byte[] RenderPdf(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
+        private /*byte[]*/ void RenderPdf(string ecgImage)//string htmlText, string pageTitle, string ecgImage)
         {
-            byte[] renderedBuffer;
+            //byte[] renderedBuffer;
             string filePath = HostingEnvironment.MapPath("~/Content/Pdf/");
-
-            using (var outputMemoryStream = new FileStream(filePath + "\\pdf-" + "Test.pdf", FileMode.Create))
+            using (var outputMemoryStream = new FileStream(filePath + @"\\pdf-" + "Test.pdf", FileMode.Create))
             {
                 using (var doc = new Document(PageSize.A4, 40, 40, 40 ,40))
                 {
@@ -66,14 +66,15 @@ namespace iTextSharpReportGenerator
                     doc.Open();
                     DrawPdfPage drawPdfPage = new DrawPdfPage();
                     drawPdfPage.Generate(doc, pdfWriter, ecgImage);
+                    doc.Close();
                 }
 
-                renderedBuffer = new byte[outputMemoryStream.Position];
-                outputMemoryStream.Position = 0;
-                outputMemoryStream.Read(renderedBuffer, 0, renderedBuffer.Length);
+                //renderedBuffer = new byte[outputMemoryStream.Position];
+                //outputMemoryStream.Position = 0;
+                //outputMemoryStream.Read(renderedBuffer, 0, renderedBuffer.Length);
             }
 
-            return renderedBuffer;
+            //return renderedBuffer;
         }
     }
 }

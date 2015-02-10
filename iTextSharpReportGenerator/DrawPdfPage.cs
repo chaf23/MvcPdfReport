@@ -28,7 +28,7 @@ namespace iTextSharpReportGenerator
             var cb = pdfWriter.DirectContent;
             DocumentHeader(cb);
 
-            for (var cnt = 0; cnt < 8; cnt++)
+            for (var cnt = 0; cnt < 30; cnt++)
             {
                 if (YPos < YBeginningPos)
                 {
@@ -45,14 +45,16 @@ namespace iTextSharpReportGenerator
 
         private void DocumentHeader(PdfContentByte cb)
         {
+            YPos = 678;
+
             //Vertical Line
-            cb.MoveTo(296, 632);
+            cb.MoveTo(296, YPos);
             cb.LineTo(296, YEndPost);
             cb.Stroke();
 
             //Horizontal Line
-            cb.MoveTo(XBeginningPos, 632);
-            cb.LineTo(XEndPos, 632);
+            cb.MoveTo(XBeginningPos, YPos);
+            cb.LineTo(XEndPos, YPos);
             cb.Stroke();
             var text = "Date:" + DateTime.Now.Date.ToString("MM/dd/yyyy");
             var textAlignedPdf = new TextAlignedPdfConfig
@@ -60,13 +62,13 @@ namespace iTextSharpReportGenerator
                                                 Alignment = 0,
                                                 Text = text,
                                                 X = 50,
-                                                Y = 650,
+                                                Y = YPos += 18,
                                                 Rotation = 0
                                             };
 
             PdfText(cb, textAlignedPdf);
 
-            YPos = 527;
+            YPos -= 123;
         }
 
         private Image ConvertBase64ToElement(string base64String)
@@ -115,7 +117,7 @@ namespace iTextSharpReportGenerator
             TimeLeadText(cb);
 
             //Bottom Border Line
-            YPos -= 46;//TODO: Fix
+            YPos -= 46;
             cb.MoveTo(XBeginningPos, YPos);
             cb.LineTo(XEndPos, YPos);
             cb.Stroke();
@@ -146,10 +148,9 @@ namespace iTextSharpReportGenerator
 
         private static void PdfText(PdfContentByte cb, TextAlignedPdfConfig parms)
         {
-            
             var bf = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             cb.SetColorFill(BaseColor.BLACK);
-            cb.SetFontAndSize(bf, 24);
+            cb.SetFontAndSize(bf, 18);
 
             cb.BeginText();
             cb.ShowTextAligned(parms.Alignment, parms.Text, parms.X, parms.Y, parms.Rotation);

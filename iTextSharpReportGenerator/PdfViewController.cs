@@ -22,16 +22,17 @@ namespace iTextSharpReportGenerator
             this._standardPdfRenderer = new StandardPdfRenderer();
         }
 
-        protected ActionResult ViewPdf(string pageTitle, string viewName, object model, string ecgImage)
+        protected /*ActionResult*/ void ViewPdf(string ecgImage)
         {
             // Render the view html to a string
             //var htmlText = this._htmlViewRenderer.RenderViewToString(this, viewName, model);
 
             // Let the html be rendered into a PDF document through iTextSharp
-            byte[] buffer = _standardPdfRenderer.Render(ecgImage);//htmlText, pageTitle, ecgImage);
+            //byte[] buffer = _standardPdfRenderer.Render(ecgImage);//htmlText, pageTitle, ecgImage);
+            _standardPdfRenderer.Render(ecgImage);//htmlText, pageTitle, ecgImage);
 
             // Return the PDF as a binary stream to the client
-            return new BinaryContentResult(buffer, "application/pdf");
+            //return new BinaryContentResult(buffer, "application/pdf");
         }
     }
 

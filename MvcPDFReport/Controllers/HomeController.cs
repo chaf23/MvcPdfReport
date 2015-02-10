@@ -10,31 +10,32 @@ namespace MvcPDFReport.Controllers
     /// </summary>
     public class HomeController : PdfViewController
     {
-        public ActionResult PrintProviders(PatientModel patient)
+        public /*ActionResult*/ void PrintProviders(PatientModel patient)
         {
             //var providerList = CreateCustomerList();
-            var ecgImageList = CreateEcgImageList(patient);
-            FillImageUrl(ecgImageList, "Bears.jpg", patient.EcgImage);
-            return ViewPdf("RHYTHM STRIPS", "PdfReport", ecgImageList, patient.EcgImage);
+            //var ecgImageList = CreateEcgImageList(patient);
+            //FillImageUrl(ecgImageList, "Bears.jpg", patient.EcgImage);
+            //return ViewPdf(patient.EcgImage);
+            ViewPdf(patient.EcgImage);
         }
 
         #region Private Methods
 
-        private void FillImageUrl(PatientListModel providerList, string logoName, string ecgImage)
-        {
-            if (Request.Url == null) return;
-            var url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
-            providerList.LogoImage = url + "Content/" + logoName;
-            providerList.EcgImage = ecgImage;
-        }
+        //private void FillImageUrl(PatientListModel providerList, string logoName, string ecgImage)
+        //{
+        //    if (Request.Url == null) return;
+        //    var url = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"));
+        //    providerList.LogoImage = url + "Content/" + logoName;
+        //    providerList.EcgImage = ecgImage;
+        //}
 
-        private PatientListModel CreateEcgImageList(PatientModel patient)
-        {
-            return new PatientListModel()
-                       {
-                           new PatientModel { Address = patient.Address, Dob = patient.Dob, Mrn = patient.Mrn, Name = patient.Name}
-                       };
-        }
+        //private PatientListModel CreateEcgImageList(PatientModel patient)
+        //{
+        //    return new PatientListModel()
+        //               {
+        //                   new PatientModel { Address = patient.Address, Dob = patient.Dob, Mrn = patient.Mrn, Name = patient.Name}
+        //               };
+        //}
 
         //private ProviderList CreateCustomerList()
         //{
